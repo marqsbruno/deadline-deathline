@@ -1,20 +1,38 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 
 function Clock() {
-  const { initialTime } = useContext(TimeContext);
-  const [timeNow, setTimeNow] = useState(0);
+  const { deadline } = useContext(TimeContext);
+  //const [countdown, setCountdown] = useState("");
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => setTimeNow(Date.now()), 1000);
-    console.log(initialTime);
+  const getTimeLeft = () => {
+    console.log(deadline);
 
-    return () => clearInterval(interval);
-  }, [initialTime]);
+    const unixDeadline = Date.parse(deadline) - Date.now();
+    setSeconds(Math.floor(unixDeadline / 1000) % 60);
+    setMinutes(Math.floor(unixDeadline / 60000) % 60);
+    setHours(Math.floor(unixDeadline / 3600000) % 24);
+    setDays(Math.floor(unixDeadline / (3600000 * 24)));
+  };
+
+  const handleClick = () => {
+    setInterval(() => getTimeLeft(), 1000);
+    console.log("cliquei");
+  };
 
   return (
     <div>
-      <h1>{timeNow}</h1>
+      <button type="button" onClick={handleClick}>
+        Start
+      </button>
+      {seconds ? <h1>{seconds}</h1> : <></>}
+      {minutes ? <h1>{minutes}</h1> : <></>}
+      {minutes ? <h1>{hours}</h1> : <></>}
+      {days > 0 ? <h1>{days}</h1> : <p>0</p>}
     </div>
   );
 }
