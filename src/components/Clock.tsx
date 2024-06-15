@@ -1,16 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 
 function Clock() {
   const { deadline, deadlineHour } = useContext(TimeContext);
+  const [isRunning, setIsRunning] = useState(false);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const timerRef = useRef(0);
 
   const getTimeLeft = () => {
     const fullDeadline = deadline + "T" + deadlineHour + ":00";
-    console.log(fullDeadline);
 
     const unixDeadline = Date.parse(fullDeadline) - Date.now();
     setSeconds(Math.floor(unixDeadline / 1000) % 60);
@@ -20,19 +21,44 @@ function Clock() {
   };
 
   const handleClick = () => {
-    setInterval(() => getTimeLeft(), 1000);
-    console.log("cliquei");
+    timerRef.current = setInterval(() => getTimeLeft(), 1000);
+    console.log("interval");
+
+    setIsRunning(true);
+  };
+
+  const handleReset = () => {
+    clearInterval(timerRef.current);
+    console.log(timerRef.current);
+
+    setSeconds(0);
+    setMinutes(0);
+    setHours(0);
+    setDays(0);
+    setIsRunning(false);
   };
 
   return (
     <div>
-      <button type="button" onClick={handleClick}>
+      <button disabled={isRunning} type="button" onClick={handleClick}>
         Start
       </button>
-      {seconds ? <h1>{seconds} segundos</h1> : <h1>0 segundos</h1>}
-      {minutes ? <h1>{minutes} minutos</h1> : <h1>0 minutos</h1>}
-      {minutes ? <h1>{hours} horas</h1> : <h1>0 dias</h1>}
-      {days > 0 ? <h1>{days} dias</h1> : <h1>0 dias</h1>}
+      <button disabled={!isRunning} type="button" onClick={handleReset}>
+        Reset
+      </button>
+      {isRunning ? (
+        <div>
+          <h2>You only have:</h2>
+          <h1>{seconds} seconds</h1>
+          <h1>{minutes} minutes</h1>
+          <h1>{hours} hours</h1>
+          <h1>{days} days</h1>
+          <h2>to finish your project 😭</h2>
+          <p>Good luck</p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

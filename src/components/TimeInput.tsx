@@ -5,11 +5,9 @@ function TimeInput() {
   const { deadline, setDeadline, deadlineHour, setDeadlineHour } =
     useContext(TimeContext);
 
-  console.log(deadline);
-
   return (
     <div>
-      <h2>Set a deadline for your project</h2>
+      <h1>Set a deadline for your project</h1>
       <input
         type="date"
         value={deadline}
