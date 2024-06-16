@@ -40,6 +40,7 @@ function Clock() {
 
   return (
     <div>
+      <br />
       <button disabled={isRunning} type="button" onClick={handleClick}>
         Start
       </button>
@@ -49,10 +50,11 @@ function Clock() {
       {isRunning ? (
         <div>
           <h2>You only have:</h2>
-          <h1>{seconds} seconds</h1>
-          <h1>{minutes} minutes</h1>
-          <h1>{hours} hours</h1>
           <h1>{days} days</h1>
+          <h1>{hours} hours</h1>
+          <h1>{minutes} minutes</h1>
+          <h3>and</h3>
+          <h1>{seconds} seconds</h1>
           <h2>to finish your project 😭</h2>
           <p>Good luck</p>
         </div>
