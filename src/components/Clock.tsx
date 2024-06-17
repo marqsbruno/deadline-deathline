@@ -1,5 +1,6 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
+import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
 
 function Clock() {
   const { deadline, deadlineHour } = useContext(TimeContext);
@@ -10,33 +11,38 @@ function Clock() {
   const [seconds, setSeconds] = useState(0);
   const timerRef = useRef(0);
 
-  const getTimeLeft = () => {
-    const fullDeadline = deadline + "T" + deadlineHour + ":00";
-
+  const getTimeLeft = (fullDeadline: string) => {
     const unixDeadline = Date.parse(fullDeadline) - Date.now();
     setSeconds(Math.floor(unixDeadline / 1000) % 60);
     setMinutes(Math.floor(unixDeadline / 60000) % 60);
     setHours(Math.floor(unixDeadline / 3600000) % 24);
     setDays(Math.floor(unixDeadline / (3600000 * 24)));
+    setIsRunning(true);
   };
 
   const handleClick = () => {
-    timerRef.current = setInterval(() => getTimeLeft(), 1000);
-    console.log("interval");
-
-    setIsRunning(true);
+    const fullDeadline = deadline + "T" + deadlineHour + ":00";
+    timerRef.current = setInterval(() => getTimeLeft(fullDeadline), 1000);
+    setLocalStorage("savedTime", fullDeadline);
   };
 
   const handleReset = () => {
     clearInterval(timerRef.current);
-    console.log(timerRef.current);
 
     setSeconds(0);
     setMinutes(0);
     setHours(0);
     setDays(0);
+    localStorage.clear();
     setIsRunning(false);
   };
+
+  useEffect(() => {
+    const localDeadline = getLocalStorage("savedTime");
+    if (localDeadline) {
+      setInterval(() => getTimeLeft(localDeadline), 1000);
+    }
+  }, []);
 
   return (
     <div>
