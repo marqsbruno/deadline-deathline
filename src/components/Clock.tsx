@@ -3,13 +3,14 @@ import { TimeContext } from "../context/TimeContext";
 import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
 
 function Clock() {
-  const { deadline, deadlineHour } = useContext(TimeContext);
+  const { deadline, deadlineHour, setDeadline, setDeadlineHour } =
+    useContext(TimeContext);
   const [isRunning, setIsRunning] = useState(false);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const timerRef = useRef(0);
+  const timerRef = useRef<NodeJS.Timeout | number>(0);
 
   const getTimeLeft = (fullDeadline: string) => {
     const unixDeadline = Date.parse(fullDeadline) - Date.now();
@@ -21,6 +22,7 @@ function Clock() {
   };
 
   const handleClick = () => {
+    console.log(deadline);
     const fullDeadline = deadline + "T" + deadlineHour + ":00";
     timerRef.current = setInterval(() => getTimeLeft(fullDeadline), 1000);
     setLocalStorage("savedTime", fullDeadline);
@@ -28,29 +30,41 @@ function Clock() {
 
   const handleReset = () => {
     clearInterval(timerRef.current);
-
+    setDeadline("");
+    setDeadlineHour("");
+    localStorage.clear();
     setSeconds(0);
     setMinutes(0);
     setHours(0);
     setDays(0);
-    localStorage.clear();
     setIsRunning(false);
   };
 
   useEffect(() => {
     const localDeadline = getLocalStorage("savedTime");
     if (localDeadline) {
-      setInterval(() => getTimeLeft(localDeadline), 1000);
+      timerRef.current = setInterval(() => getTimeLeft(localDeadline), 1000);
     }
+
+    return () => {
+      clearInterval(timerRef.current);
+    };
   }, []);
+
+  const verifyButton = () => {
+    if (deadline.length > 1 && deadlineHour.length > 1 && !isRunning) {
+      return false;
+    }
+    return true;
+  };
 
   return (
     <div>
       <br />
-      <button disabled={isRunning} type="button" onClick={handleClick}>
+      <button disabled={verifyButton()} type="button" onClick={handleClick}>
         Start
       </button>
-      <button disabled={!isRunning} type="button" onClick={handleReset}>
+      <button disabled={!verifyButton()} type="button" onClick={handleReset}>
         Reset
       </button>
       {isRunning ? (
