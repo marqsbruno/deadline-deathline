@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
-
+import { ClockDiv, Container } from "./styles/Clock.style";
 function Clock() {
   const { deadline, deadlineHour, setDeadline, setDeadlineHour } =
     useContext(TimeContext);
@@ -22,7 +22,6 @@ function Clock() {
   };
 
   const handleClick = () => {
-    console.log(deadline);
     const fullDeadline = deadline + "T" + deadlineHour + ":00";
     timerRef.current = setInterval(() => getTimeLeft(fullDeadline), 1000);
     setLocalStorage("savedTime", fullDeadline);
@@ -30,9 +29,9 @@ function Clock() {
 
   const handleReset = () => {
     clearInterval(timerRef.current);
+    localStorage.clear();
     setDeadline("");
     setDeadlineHour("");
-    localStorage.clear();
     setSeconds(0);
     setMinutes(0);
     setHours(0);
@@ -52,14 +51,14 @@ function Clock() {
   }, []);
 
   const verifyButton = () => {
-    if (deadline.length > 1 && deadlineHour.length > 1 && !isRunning) {
+    if (deadline !== "" && deadlineHour !== "" && !isRunning) {
       return false;
     }
     return true;
   };
 
   return (
-    <div>
+    <Container>
       <br />
       <button disabled={verifyButton()} type="button" onClick={handleClick}>
         Start
@@ -68,7 +67,7 @@ function Clock() {
         Reset
       </button>
       {isRunning ? (
-        <div>
+        <ClockDiv>
           <h2>You only have:</h2>
           <h1>{days} days</h1>
           <h1>{hours} hours</h1>
@@ -77,11 +76,11 @@ function Clock() {
           <h1>{seconds} seconds</h1>
           <h2>to finish your project 😭</h2>
           <p>Good luck</p>
-        </div>
+        </ClockDiv>
       ) : (
         <></>
       )}
-    </div>
+    </Container>
   );
 }
 

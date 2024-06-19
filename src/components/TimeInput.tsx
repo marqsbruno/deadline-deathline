@@ -1,5 +1,11 @@
 import { useContext } from "react";
 import { TimeContext } from "../context/TimeContext";
+import {
+  Container,
+  DateDiv,
+  HeaderDiv,
+  InputDiv,
+} from "./styles/TimeInput.style";
 
 function TimeInput() {
   const { deadline, setDeadline, deadlineHour, setDeadlineHour } =
@@ -11,25 +17,18 @@ function TimeInput() {
 
   function handleHourChange(event: React.ChangeEvent<HTMLInputElement>) {
     setDeadlineHour(event.target.value);
-    console.log(deadline);
   }
 
-  /*   const formatDate = () => {
-    const year = deadline.slice(0, 4);
-    const month = deadline.slice(4, 8);
-    const day = deathline.slice(9, 10)
-
-    return month;
-  }; */
-
   return (
-    <div>
-      <div>
+    <Container>
+      <HeaderDiv>
         <h1>Set a deadline for your project</h1>
-        <input type="date" value={deadline} onChange={handleDateChange} />
-        <input type="time" value={deadlineHour} onChange={handleHourChange} />
-      </div>
-      <div>
+        <InputDiv>
+          <input type="date" value={deadline} onChange={handleDateChange} />
+          <input type="time" value={deadlineHour} onChange={handleHourChange} />
+        </InputDiv>
+      </HeaderDiv>
+      <DateDiv>
         {deadline && deadlineHour ? (
           <p>
             {deadline.slice(8, 10)}
@@ -39,8 +38,8 @@ function TimeInput() {
         ) : (
           <></>
         )}
-      </div>
-    </div>
+      </DateDiv>
+    </Container>
   );
 }
 

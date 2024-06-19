@@ -1,12 +1,11 @@
-import "./App.css";
-import Clock from "./components/Clock";
-import TimeInput from "./components/TimeInput";
+import Page from "./pages/Page.tsx";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (
     <>
-      <TimeInput />
-      <Clock />
+      <GlobalStyle />
+      <Page />
     </>
   );
 }
