@@ -11,6 +11,17 @@ export const HeaderDiv = styled.div`
   padding: 20px;
 `;
 
+export const TextInputDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+
+  input {
+    width: 12vh;
+    border-radius: 8px;
+  }
+`;
+
 export const InputDiv = styled.div`
   display: flex;
   justify-content: center;

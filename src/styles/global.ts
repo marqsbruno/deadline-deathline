@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
   body {
     margin: 20px;
-    background-color: #ffa07a;
+    background-color: #f6d0b4;
     font-family: sans-serif;
   }
 `;
