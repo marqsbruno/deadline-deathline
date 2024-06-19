@@ -8,8 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 20px;
-    background-color: #f6d0b4;
+    background-color: #C9EDDC;
     font-family: sans-serif;
   }
 `;

@@ -3,12 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   justify-content: center;
-`;
-
-export const HeaderDiv = styled.div`
-  border: 3px, solid, black;
-  border-radius: 10px;
-  padding: 20px;
+  padding: 2vh;
+  // border: 1px solid black;
+  text-align: center;
 `;
 
 export const TextInputDiv = styled.div`
@@ -18,7 +15,6 @@ export const TextInputDiv = styled.div`
 
   input {
     width: 12vh;
-    border-radius: 8px;
   }
 `;
 
@@ -29,15 +25,14 @@ export const InputDiv = styled.div`
 
   input {
     margin-top: 1rem;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0.8vh;
   }
 `;
 
-export const DateDiv = styled.div`
+/* export const DateDiv = styled.div`
   margin: 10px;
   // border: 2px, dotted, #ffff;
   border-radius: 10px;
   justify-content: center;
   display: flex;
-`;
+`; */

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
-import { ClockDiv, Container } from "./styles/Clock.style";
+import { ButtonDiv, ClockDiv, Container } from "./styles/Clock.style";
 function Clock() {
   const { deadline, deadlineHour, setDeadline, setDeadlineHour } =
     useContext(TimeContext);
@@ -59,13 +59,14 @@ function Clock() {
 
   return (
     <Container>
-      <br />
-      <button disabled={verifyButton()} type="button" onClick={handleClick}>
-        Start
-      </button>
-      <button disabled={!verifyButton()} type="button" onClick={handleReset}>
-        Reset
-      </button>
+      <ButtonDiv>
+        <button disabled={verifyButton()} type="button" onClick={handleClick}>
+          Start
+        </button>
+        <button disabled={!verifyButton()} type="button" onClick={handleReset}>
+          Reset
+        </button>
+      </ButtonDiv>
       {isRunning ? (
         <ClockDiv>
           <h2>You only have:</h2>

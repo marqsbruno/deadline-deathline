@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   max-width: fit-content;
-  padding: 20px;
+  padding: 2rem;
   color: #ebf6ff;
-  background-color: #47acff;
-  border: 1px, solid, #47acff;
-  border-radius: 50px;
-  box-shadow: 5px 5px 5px #0277ca;
+  background-color: #35aafd;
+  background: linear-gradient(180deg, #35aafd 70%, #0277ca);
+  border: 1px, solid, #ffffff;
+  // border-radius: 50px;
+  box-shadow: 35px 35px #2d3142;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 12vh;
 `;
