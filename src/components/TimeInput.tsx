@@ -20,10 +20,12 @@ function TimeInput() {
 
   function handleDateChange(event: React.ChangeEvent<HTMLInputElement>) {
     setDeadline(event.target.value);
+    setLocalStorage("localDate", event.target.value);
   }
 
   function handleHourChange(event: React.ChangeEvent<HTMLInputElement>) {
     setDeadlineHour(event.target.value);
+    setLocalStorage("localHour", event.target.value);
   }
 
   function handleTextInput(event: React.ChangeEvent<HTMLInputElement>) {
@@ -42,7 +44,17 @@ function TimeInput() {
       setTextValue(projectName);
       setShowInput(false);
     }
-  }, []);
+
+    const localDate = getLocalStorage("localDate");
+    const localHour = getLocalStorage("localHour");
+
+    if (localDate && localHour) {
+      console.log(localDate);
+
+      setDeadline(localDate);
+      setDeadlineHour(localHour);
+    }
+  }, [setDeadline, setDeadlineHour]);
   return (
     <Container>
       <HeaderDiv>

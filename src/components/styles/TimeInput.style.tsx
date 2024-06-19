@@ -36,7 +36,7 @@ export const InputDiv = styled.div`
 
 export const DateDiv = styled.div`
   margin: 10px;
-  border: 2px, dotted, #ffff;
+  // border: 2px, dotted, #ffff;
   border-radius: 10px;
   justify-content: center;
   display: flex;
