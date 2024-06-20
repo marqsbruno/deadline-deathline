@@ -37,10 +37,12 @@ function Clock() {
       hours: Math.floor(unixDeadline / 3600000) % 24,
       days: Math.floor(unixDeadline / (3600000 * 24)),
     });
+    setIsRunning(true);
   };
 
   const handleClick = () => {
     const fullDeadline = deadline + "T" + deadlineHour + ":00";
+    getTimeLeft(fullDeadline);
 
     timerRef.current = setInterval(() => getTimeLeft(fullDeadline), 1000);
     setLocalStorage("savedTime", fullDeadline);
