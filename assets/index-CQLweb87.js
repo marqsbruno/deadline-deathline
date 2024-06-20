@@ -87,7 +87,7 @@ Error generating stack: `+o.message+`
   }
 `;function i0(){const{deadline:e,setDeadline:t,deadlineHour:n,setDeadlineHour:r}=X.useContext(Xu),[l,o]=X.useState(""),[i,u]=X.useState(!0),[s,c]=X.useState("");function m(g){t(g.target.value),vl("localDate",g.target.value)}function h(g){r(g.target.value),vl("localHour",g.target.value)}function p(g){o(g.target.value)}function y(){u(!i),vl("projectName",l)}function w(){const g=new Date,T=g.getFullYear(),f=String(g.getMonth()+1).padStart(2,"0"),a=String(g.getDate()).padStart(2,"0");return`${T}-${f}-${a}`}return X.useEffect(()=>{const g=yl("projectName");c(w()),g&&(o(g),u(!1));const T=yl("localDate"),f=yl("localHour");T&&f&&(t(T),r(f))},[t,r]),z.jsxs(r0,{children:[z.jsx("h1",{children:"Set a deadline for your project"}),z.jsxs(l0,{children:[i&&z.jsx("input",{type:"text",placeholder:" project's name",onChange:p,value:l,onKeyDown:g=>g.key==="Enter"&&y()}),i&&z.jsx(n0,{size:24,style:{color:"black"},onClick:y}),!i&&z.jsxs(z.Fragment,{children:[z.jsx("h3",{children:l}),z.jsx(t0,{size:24,style:{color:"black"},onClick:y})]})]}),z.jsxs(o0,{children:[z.jsx("input",{type:"date",value:e,onChange:m,min:s}),z.jsx("input",{type:"time",value:n,onChange:h})]})]})}const u0=ft.div`
   margin: auto;
-  width: 80%;
+  width: 85%;
   padding: 1.5rem;
   color: #ebf6ff;
   background-color: #35aafd;
@@ -99,7 +99,7 @@ Error generating stack: `+o.message+`
   @media (max-width: 768px) {
     padding: 1rem;
     width: 75%;
-    box-shadow: 30px 39px #2d3142;
+    box-shadow: 30px 30px #2d3142;
   }
 `;function s0(){return z.jsxs(u0,{children:[z.jsx(i0,{}),z.jsx(Ym,{})]})}const a0=Hm`
   *{
