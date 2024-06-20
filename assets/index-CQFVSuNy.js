@@ -45,12 +45,13 @@ Error generating stack: `+o.message+`
 `,Wm=ft.div`
   display: flex;
   justify-content: center;
-  gap: 3%;
+  gap: 2%;
 
   button {
     padding: 1vh;
     background-color: aliceblue;
     margin-bottom: 10px;
+    font-family: "Chakra Petch", sans-serif;
   }
 `,Qm=ft.div`
   text-align: center;
@@ -72,9 +73,14 @@ Error generating stack: `+o.message+`
   display: flex;
   justify-content: center;
   gap: 1%;
+  font-family: "Chakra Petch", sans-serif;
 
   input {
     width: 12vh;
+
+    @media (max-width: 768px) {
+      width: 13vh;
+    }
   }
 `,o0=ft.div`
   display: flex;
@@ -85,7 +91,7 @@ Error generating stack: `+o.message+`
     margin-top: 1rem;
     padding: 0.8vh;
   }
-`;function i0(){const{deadline:e,setDeadline:t,deadlineHour:n,setDeadlineHour:r}=X.useContext(Xu),[l,o]=X.useState(""),[i,u]=X.useState(!0),[s,c]=X.useState("");function m(g){t(g.target.value),vl("localDate",g.target.value)}function h(g){r(g.target.value),vl("localHour",g.target.value)}function p(g){o(g.target.value)}function y(){u(!i),vl("projectName",l)}function w(){const g=new Date,T=g.getFullYear(),f=String(g.getMonth()+1).padStart(2,"0"),a=String(g.getDate()).padStart(2,"0");return`${T}-${f}-${a}`}return X.useEffect(()=>{const g=yl("projectName");c(w()),g&&(o(g),u(!1));const T=yl("localDate"),f=yl("localHour");T&&f&&(t(T),r(f))},[t,r]),z.jsxs(r0,{children:[z.jsx("h1",{children:"Set a deadline for your project"}),z.jsxs(l0,{children:[i&&z.jsx("input",{type:"text",placeholder:" project's name",onChange:p,value:l,onKeyDown:g=>g.key==="Enter"&&y()}),i&&z.jsx(n0,{size:24,style:{color:"black"},onClick:y}),!i&&z.jsxs(z.Fragment,{children:[z.jsx("h3",{children:l}),z.jsx(t0,{size:24,style:{color:"black"},onClick:y})]})]}),z.jsxs(o0,{children:[z.jsx("input",{type:"date",value:e,onChange:m,min:s}),z.jsx("input",{type:"time",value:n,onChange:h})]})]})}const u0=ft.div`
+`;function i0(){const{deadline:e,setDeadline:t,deadlineHour:n,setDeadlineHour:r}=X.useContext(Xu),[l,o]=X.useState(""),[i,u]=X.useState(!0),[s,c]=X.useState("");function m(g){t(g.target.value),vl("localDate",g.target.value)}function h(g){r(g.target.value),vl("localHour",g.target.value)}function p(g){o(g.target.value)}function y(){u(!i),vl("projectName",l)}function w(){const g=new Date,T=g.getFullYear(),f=String(g.getMonth()+1).padStart(2,"0"),a=String(g.getDate()).padStart(2,"0");return`${T}-${f}-${a}`}return X.useEffect(()=>{const g=yl("projectName");c(w()),g&&(o(g),u(!1));const T=yl("localDate"),f=yl("localHour");T&&f&&(t(T),r(f))},[t,r]),z.jsxs(r0,{children:[z.jsx("h1",{children:"Set a deadline for your project"}),z.jsxs(l0,{children:[i&&z.jsx("input",{type:"text",placeholder:" project's name",onChange:p,value:l,onKeyDown:g=>g.key==="Enter"&&y()}),i&&z.jsx(n0,{size:23,style:{color:"black"},onClick:y}),!i&&z.jsxs(z.Fragment,{children:[z.jsx("h3",{children:l}),z.jsx(t0,{size:23,style:{color:"black"},onClick:y})]})]}),z.jsxs(o0,{children:[z.jsx("input",{type:"date",value:e,onChange:m,min:s}),z.jsx("input",{type:"time",value:n,onChange:h})]})]})}const u0=ft.div`
   margin: auto;
   width: 85%;
   padding: 1.5rem;
