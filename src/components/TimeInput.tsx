@@ -11,6 +11,7 @@ function TimeInput() {
     useContext(TimeContext);
   const [textValue, setTextValue] = useState("");
   const [showInput, setShowInput] = useState(true);
+  const [today, setToday] = useState("");
 
   function handleDateChange(event: React.ChangeEvent<HTMLInputElement>) {
     setDeadline(event.target.value);
@@ -31,8 +32,18 @@ function TimeInput() {
     setLocalStorage("projectName", textValue);
   }
 
+  function getToday() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
+
   useEffect(() => {
     const projectName = getLocalStorage("projectName");
+    setToday(getToday());
 
     if (projectName) {
       setTextValue(projectName);
@@ -43,8 +54,6 @@ function TimeInput() {
     const localHour = getLocalStorage("localHour");
 
     if (localDate && localHour) {
-      console.log(localDate);
-
       setDeadline(localDate);
       setDeadlineHour(localHour);
     }
@@ -81,7 +90,12 @@ function TimeInput() {
         )}
       </TextInputDiv>
       <InputDiv>
-        <input type="date" value={deadline} onChange={handleDateChange} />
+        <input
+          type="date"
+          value={deadline}
+          onChange={handleDateChange}
+          min={today}
+        />
         <input type="time" value={deadlineHour} onChange={handleHourChange} />
       </InputDiv>
       {/*       <DateDiv>

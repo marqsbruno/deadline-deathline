@@ -6,12 +6,6 @@ export const Container = styled.div`
   //border: 1px solid black;
 `;
 
-export const ClockDiv = styled.div`
-  text-align: center;
-  //border: 1px solid black;
-  // text-shadow: 5px 5px 10px teal;
-`;
-
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -22,4 +16,17 @@ export const ButtonDiv = styled.div`
     background-color: aliceblue;
     margin-bottom: 10px;
   }
+`;
+
+export const ClockDiv = styled.div`
+  text-align: center;
+  margin: 12px;
+`;
+
+export const Timer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12%;
+  margin: 15px;
+  // border: 1px solid orange;
 `;

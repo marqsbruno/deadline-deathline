@@ -9,6 +9,7 @@ export const Container = styled.div`
 `;
 
 export const TextInputDiv = styled.div`
+  margin-top: 12px;
   display: flex;
   justify-content: center;
   gap: 1%;

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
-import { ButtonDiv, ClockDiv, Container } from "./styles/Clock.style";
+import { ButtonDiv, ClockDiv, Container, Timer } from "./styles/Clock.style";
 function Clock() {
   const { deadline, deadlineHour, setDeadline, setDeadlineHour } =
     useContext(TimeContext);
@@ -10,7 +10,7 @@ function Clock() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | number>(0);
+  const timerRef = useRef<NodeJS.Timeout | number>();
 
   const getTimeLeft = (fullDeadline: string) => {
     const unixDeadline = Date.parse(fullDeadline) - Date.now();
@@ -70,13 +70,26 @@ function Clock() {
       {isRunning ? (
         <ClockDiv>
           <h2>You only have:</h2>
-          <h1>{days} days</h1>
-          <h1>{hours} hours</h1>
-          <h1>{minutes} minutes</h1>
-          <h3>and</h3>
-          <h1>{seconds} seconds</h1>
+          <Timer>
+            <div>
+              <h1>{days}</h1>
+              <p>days</p>
+            </div>
+            <div>
+              <h1>{hours}</h1>
+              <p>hours</p>
+            </div>
+            <div>
+              <h1>{minutes} </h1>
+              <p>minutes</p>
+            </div>
+            <div>
+              <h1>{seconds} </h1>
+              <p>seconds</p>
+            </div>
+          </Timer>
           <h2>to finish your project 😭</h2>
-          <p>Good luck</p>
+          <p style={{ marginTop: "12px" }}>Good luck</p>
         </ClockDiv>
       ) : (
         <></>
