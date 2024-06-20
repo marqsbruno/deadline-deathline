@@ -16,6 +16,10 @@ export const TextInputDiv = styled.div`
 
   input {
     width: 12vh;
+
+    @media (max-width: 768px) {
+      width: 13vh;
+    }
   }
 `;
 

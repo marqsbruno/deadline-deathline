@@ -11,13 +11,13 @@ export default createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #C9EDDC;
-    font-family: sans-serif;
+    background-color: ${(props) => props.theme.colors.bg};
     height: 100vh;
     
-    font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    
+    font-family: ${(props) => props.theme.font};
+    font-weight: 400;
+    font-style: normal;  
   }
 `;
+
+// ${(props) => props.theme.colors.bg};

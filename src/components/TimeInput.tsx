@@ -73,7 +73,7 @@ function TimeInput() {
         )}
         {showInput && (
           <CiSquareCheck
-            size={24}
+            size={23}
             style={{ color: "black" }}
             onClick={handleEnter}
           />
@@ -82,7 +82,7 @@ function TimeInput() {
           <>
             <h3>{textValue}</h3>
             <CiEdit
-              size={24}
+              size={23}
               style={{ color: "black" }}
               onClick={handleEnter}
             />

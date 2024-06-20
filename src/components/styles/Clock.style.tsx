@@ -9,12 +9,13 @@ export const Container = styled.div`
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: center;
-  gap: 3%;
+  gap: 2%;
 
   button {
     padding: 1vh;
     background-color: aliceblue;
     margin-bottom: 10px;
+    font-family: "Chakra Petch", sans-serif;
   }
 `;
 
