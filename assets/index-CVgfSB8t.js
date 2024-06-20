@@ -97,7 +97,9 @@ Error generating stack: `+o.message+`
   box-shadow: 35px 35px #2d3142;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 0.8rem;
+    width: 70%;
+    box-shadow: 25px 25px #2d3142;
   }
 `;function s0(){return z.jsxs(u0,{children:[z.jsx(i0,{}),z.jsx(Ym,{})]})}const a0=Hm`
   *{
