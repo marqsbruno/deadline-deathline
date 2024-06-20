@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { CiCircleCheck, CiEdit } from "react-icons/ci";
+import { CiEdit, CiSquareCheck } from "react-icons/ci";
 
 import { TimeContext } from "../context/TimeContext";
 
@@ -72,7 +72,7 @@ function TimeInput() {
           />
         )}
         {showInput && (
-          <CiCircleCheck
+          <CiSquareCheck
             size={24}
             style={{ color: "black" }}
             onClick={handleEnter}
