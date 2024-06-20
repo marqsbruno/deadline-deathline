@@ -115,5 +115,10 @@ Error generating stack: `+o.message+`
     background-color: #C9EDDC;
     font-family: sans-serif;
     height: 100vh;
+    
+    font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    
   }
 `;function c0(){return z.jsxs(z.Fragment,{children:[z.jsx(a0,{}),z.jsx(s0,{})]})}bo.createRoot(document.getElementById("root")).render(z.jsx(oe.StrictMode,{children:z.jsx(Bh,{children:z.jsx(c0,{})})}));
