@@ -1,6 +1,7 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { TimeContext } from "../context/TimeContext";
 import { getLocalStorage, setLocalStorage } from "../utils/localstorage";
+import Modal from "./Modal";
 import { ButtonDiv, ClockDiv, Container, Timer } from "./styles/Clock.style";
 
 function Clock() {
@@ -14,6 +15,8 @@ function Clock() {
     isRunning,
     setIsRunning,
   } = useContext(TimeContext);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const timerRef = useRef<NodeJS.Timeout | number>();
 
@@ -67,8 +70,6 @@ function Clock() {
     const localDeadline = getLocalStorage("savedTime");
 
     if (localDeadline) {
-      console.log("useEffect");
-
       timerRef.current = setInterval(() => getTimeLeft(localDeadline), 1000);
     }
 
@@ -80,6 +81,10 @@ function Clock() {
 
   const verifyButton = () => {
     return !(deadline !== "" && deadlineHour !== "" && !isRunning);
+  };
+
+  const testButton = () => {
+    isOpen ? setIsOpen(false) : setIsOpen(true);
   };
 
   return (
@@ -119,6 +124,8 @@ function Clock() {
       ) : (
         <></>
       )}
+      <Modal isOpen={isOpen} />
+      <button onClick={testButton}>open</button>
     </Container>
   );
 }

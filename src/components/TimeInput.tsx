@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { CiEdit, CiSquareCheck } from "react-icons/ci";
+import { CiSquareCheck } from "react-icons/ci";
+import { GrFormEdit } from "react-icons/gr";
 
 import { TimeContext } from "../context/TimeContext";
 
@@ -73,7 +74,7 @@ function TimeInput() {
         )}
         {showInput && (
           <CiSquareCheck
-            size={23}
+            size={20}
             style={{ color: "black" }}
             onClick={handleEnter}
           />
@@ -81,8 +82,8 @@ function TimeInput() {
         {!showInput && (
           <>
             <h3>{textValue}</h3>
-            <CiEdit
-              size={23}
+            <GrFormEdit
+              size={17}
               style={{ color: "black" }}
               onClick={handleEnter}
             />
