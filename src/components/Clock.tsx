@@ -14,6 +14,7 @@ function Clock() {
     setTimer,
     isRunning,
     setIsRunning,
+    setShowMessage,
   } = useContext(TimeContext);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,9 @@ function Clock() {
         hours: 0,
         days: 0,
       });
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 3000);
       return;
     }
 
@@ -64,6 +68,8 @@ function Clock() {
       days: 0,
     });
     setIsRunning(false);
+    setIsOpen(false); // modal
+    setShowMessage(false);
   };
 
   useEffect(() => {
@@ -83,9 +89,9 @@ function Clock() {
     return !(deadline !== "" && deadlineHour !== "" && !isRunning);
   };
 
-  const testButton = () => {
+  /*   const testButton = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
-  };
+  }; */
 
   return (
     <Container>
@@ -124,8 +130,8 @@ function Clock() {
       ) : (
         <></>
       )}
-      <Modal isOpen={isOpen} />
-      <button onClick={testButton}>open</button>
+      <Modal isOpen={isOpen} handleReset={handleReset} />
+      {/*       <button onClick={testButton}>open</button> */}
     </Container>
   );
 }

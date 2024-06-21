@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin: auto;
-  width: 85%;
+  width: ${(props) => props.theme.width};
   padding: 1.5rem;
   color: #ebf6ff;
-  //background: linear-gradient(180deg, #35aafd 70%, #0277ca);
   background: linear-gradient(
     180deg,
     ${(props) => props.theme.colors.app1} 70%,
     ${(props) => props.theme.colors.app2}
   );
+  transition: width 0.5s ease;
   border: 1px solid #ffffff;
   // border-radius: 50px;
   box-shadow: 35px 35px #2d3142;
@@ -21,6 +21,5 @@ export const Container = styled.div`
     box-shadow: 30px 30px #2d3142;
   }
 `;
-// F34616
-// F08605 tangerine
-//8C1C13 dark red
+
+// https://keithjgrant.com/posts/2017/07/transitioning-gradients/

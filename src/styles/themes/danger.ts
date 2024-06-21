@@ -2,6 +2,7 @@ export default {
   title: "danger",
 
   font: '"Bebas Neue", sans-serif',
+  width: "80%",
 
   colors: {
     bg: "#EEB902",

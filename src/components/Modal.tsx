@@ -1,23 +1,49 @@
+import { useContext, useState } from "react";
+import { TimeContext } from "../context/TimeContext";
+import ModalMessage from "./ModalMessage";
 import { ButtonsDiv, Container, ModalDiv, TextDiv } from "./styles/Modal.style";
 
 type ModalType = {
   isOpen: boolean;
+  handleReset: VoidFunction;
 };
 
-// SONO: fazer outro modal que recebe uma props, dependendo da resposta renderiza a mensagem de sim ou de não;
+export default function Modal({ isOpen, handleReset }: ModalType) {
+  const { setShowMessage, showMessage } = useContext(TimeContext);
 
-export default function Modal({ isOpen }: ModalType) {
+  const [messageValue, setMessageValue] = useState("");
+
+  const handleYes = () => {
+    setMessageValue("yes");
+    setShowMessage(true);
+  };
+
+  const handleNo = () => {
+    setMessageValue("no");
+    setShowMessage(true);
+  };
+
   return isOpen ? (
     <Container>
       <ModalDiv>
-        <TextDiv>
-          <h2>Time's up!</h2>
-          <p>Did you finished your project?</p>
-        </TextDiv>
-        <ButtonsDiv>
-          <button>YEAH!</button>
-          <button>NO</button>
-        </ButtonsDiv>
+        {showMessage ? (
+          <ModalMessage messageValue={messageValue} handleReset={handleReset} />
+        ) : (
+          <>
+            <TextDiv>
+              <h2>Time's up!</h2>
+              <p>Did you finished your project?</p>
+            </TextDiv>
+            <ButtonsDiv>
+              <button value="yes" onClick={handleYes}>
+                YEAH!
+              </button>
+              <button value="no" onClick={handleNo}>
+                NO
+              </button>
+            </ButtonsDiv>
+          </>
+        )}
       </ModalDiv>
     </Container>
   ) : (

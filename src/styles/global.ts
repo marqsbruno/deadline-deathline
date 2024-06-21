@@ -13,6 +13,7 @@ export default createGlobalStyle`
     align-items: center;
     background-color: ${(props) => props.theme.colors.bg};
     height: 100vh;
+    transition: background 1s ease;
     
     font-family: ${(props) => props.theme.font};
     font-weight: 400;

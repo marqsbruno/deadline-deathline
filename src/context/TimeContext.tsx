@@ -16,6 +16,8 @@ type Context = {
   setTimer: React.Dispatch<React.SetStateAction<Timer>>;
   isRunning: boolean;
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
+  showMessage: boolean;
+  setShowMessage: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const TimeContext = createContext({} as Context);
 
@@ -34,6 +36,8 @@ export default function TimeProvider({ children }: Provider) {
     days: 0,
   });
 
+  const [showMessage, setShowMessage] = useState(false); // MODAL
+
   const contextValues = {
     deadline,
     setDeadline,
@@ -43,6 +47,8 @@ export default function TimeProvider({ children }: Provider) {
     setTimer,
     isRunning,
     setIsRunning,
+    setShowMessage,
+    showMessage,
   };
 
   return (

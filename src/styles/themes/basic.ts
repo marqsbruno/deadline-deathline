@@ -1,6 +1,8 @@
 export default {
   title: "basic",
 
+  width: "85%",
+
   font: "'Chakra Petch', sans-serif",
 
   colors: {
