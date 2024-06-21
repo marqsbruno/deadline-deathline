@@ -49,7 +49,7 @@ Error generating stack: `+o.message+`
   button {
     margin: auto;
     margin-top: 1vh;
-    width: 7vh;
+    padding: 5px;
   }
 `;function Ym({messageValue:e,handleReset:t}){return e==="yes"?C.jsxs(Ca,{children:[C.jsx("h1",{children:"HELL YEAH!!!"}),C.jsx("h2",{children:"Congratulations"}),C.jsx("button",{onClick:t,children:"Go again"})]}):C.jsxs(Ca,{children:[C.jsx("h2",{children:"Well, you got it next time"}),C.jsx("p",{children:"Maybe beg for a new deadline?"}),C.jsx("button",{onClick:t,children:"Try Again"})]})}const Km=xe.div`
   border: 1px solid black;
