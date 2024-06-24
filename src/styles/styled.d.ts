@@ -6,6 +6,7 @@ declare module "styled-components" {
     width: string;
 
     font: string;
+    fontSize: string;
 
     colors: {
       bg: string;
@@ -13,6 +14,7 @@ declare module "styled-components" {
       app1: string;
 
       text: string;
+      shadow: string;
     };
   }
 }

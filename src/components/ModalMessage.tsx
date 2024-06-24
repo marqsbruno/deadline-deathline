@@ -15,8 +15,10 @@ const Container = styled.div`
 
   button {
     margin: auto;
-    margin-top: 1vh;
-    padding: 5px;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: "Bebas Neue", sans-serif;
   }
 `;
 

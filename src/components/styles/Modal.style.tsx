@@ -26,6 +26,7 @@ export const ModalDiv = styled.div`
   height: 150px;
   padding: 2vh;
   box-shadow: 10px 10px black;
+  font-family: "Bebas Neue", sans-serif;
 `;
 
 export const TextDiv = styled.div`
@@ -48,5 +49,6 @@ export const ButtonsDiv = styled.div`
   button {
     margin-top: 1vh;
     width: 7vh;
+    font-family: "Bebas Neue", sans-serif;
   }
 `;

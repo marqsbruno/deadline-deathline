@@ -16,6 +16,7 @@ export default createGlobalStyle`
     transition: background 1s ease;
     
     font-family: ${(props) => props.theme.font};
+    font-size: ${(props) => props.theme.fontSize};
     font-weight: 400;
     font-style: normal;  
   }

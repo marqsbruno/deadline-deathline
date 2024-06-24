@@ -1,14 +1,17 @@
 export default {
   title: "danger",
 
-  font: '"Bebas Neue", sans-serif',
+  font: '"Jacquard 24", system-ui;',
   width: "80%",
+  fontSize: "120%",
 
   colors: {
-    bg: "#EEB902",
-    app1: "#F34616",
-    app2: "#C2320A",
+    bg: "#392C3A",
+    app1: "#E51010",
+    app2: "#AC0C0C",
 
     text: "#000000",
+
+    shadow: "#000000",
   },
 };

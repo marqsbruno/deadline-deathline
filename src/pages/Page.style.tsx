@@ -22,14 +22,13 @@ export const Container = styled.div<ContainerProps>`
   );
   transition: width 0.5s ease;
   border: 1px solid #ffffff;
-  // border-radius: 50px;
-  box-shadow: 35px 35px #2d3142;
+  box-shadow: 35px 35px ${(props) => props.theme.colors.shadow};
   animation: ${(props) => (props.$shaking ? shake : "none")} 0.2s;
   animation-iteration-count: 15;
 
   @media (max-width: 768px) {
     padding: 1rem;
     width: 75%;
-    box-shadow: 30px 30px #2d3142;
+    box-shadow: 30px 30px ${(props) => props.theme.colors.shadow};
   }
 `;

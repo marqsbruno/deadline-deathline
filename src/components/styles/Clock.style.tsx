@@ -15,7 +15,8 @@ export const ButtonDiv = styled.div`
     padding: 1vh;
     background-color: aliceblue;
     margin-bottom: 10px;
-    font-family: "Chakra Petch", sans-serif;
+    font-family: ${(props) => props.theme.font};
+    font-size: ${(props) => props.theme.fontSize};
   }
 `;
 
