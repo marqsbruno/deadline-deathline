@@ -16,7 +16,7 @@ const Container = styled.div`
   button {
     margin: auto;
     margin-top: 1vh;
-    width: 7vh;
+    padding: 5px;
   }
 `;
 

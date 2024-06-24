@@ -18,6 +18,8 @@ type Context = {
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
   showMessage: boolean;
   setShowMessage: React.Dispatch<React.SetStateAction<boolean>>;
+  isShaking: boolean;
+  setIsShaking: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const TimeContext = createContext({} as Context);
 
@@ -37,6 +39,7 @@ export default function TimeProvider({ children }: Provider) {
   });
 
   const [showMessage, setShowMessage] = useState(false); // MODAL
+  const [isShaking, setIsShaking] = useState(false);
 
   const contextValues = {
     deadline,
@@ -49,6 +52,8 @@ export default function TimeProvider({ children }: Provider) {
     setIsRunning,
     setShowMessage,
     showMessage,
+    isShaking,
+    setIsShaking,
   };
 
   return (

@@ -15,6 +15,7 @@ function Clock() {
     isRunning,
     setIsRunning,
     setShowMessage,
+    setIsShaking,
   } = useContext(TimeContext);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,8 @@ function Clock() {
       });
       setTimeout(() => {
         setIsOpen(true);
-      }, 3000);
+      }, 2500);
+      setIsShaking(true);
       return;
     }
 
@@ -67,6 +69,7 @@ function Clock() {
       hours: 0,
       days: 0,
     });
+    setIsShaking(false); // shake Page
     setIsRunning(false);
     setIsOpen(false); // modal
     setShowMessage(false);

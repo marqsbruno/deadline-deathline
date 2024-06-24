@@ -32,7 +32,7 @@ export default function Modal({ isOpen, handleReset }: ModalType) {
           <>
             <TextDiv>
               <h2>Time's up!</h2>
-              <p>Did you finished your project?</p>
+              <p>Did you finish your project?</p>
             </TextDiv>
             <ButtonsDiv>
               <button value="yes" onClick={handleYes}>
