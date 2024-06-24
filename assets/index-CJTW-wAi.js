@@ -173,7 +173,7 @@ Error generating stack: `+o.message+`
 
   @media (max-width: 768px) {
     padding: 1rem;
-    width: 75%;
+    width: min-content;
     box-shadow: 30px 30px ${e=>e.theme.colors.shadow};
   }
 `;function w0(){const{isShaking:e}=M.useContext(Hn);return C.jsxs(y0,{$shaking:e,children:[C.jsx(v0,{}),C.jsx(r0,{})]})}const S0=Wm`
