@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TimeContext } from "../context/TimeContext";
 import ModalMessage from "./ModalMessage";
 import { ButtonsDiv, Container, ModalDiv, TextDiv } from "./styles/Modal.style";
@@ -9,9 +9,8 @@ type ModalType = {
 };
 
 export default function Modal({ isOpen, handleReset }: ModalType) {
-  const { setShowMessage, showMessage } = useContext(TimeContext);
-
-  const [messageValue, setMessageValue] = useState("");
+  const { setShowMessage, showMessage, setMessageValue, messageValue } =
+    useContext(TimeContext);
 
   const handleYes = () => {
     setMessageValue("yes");

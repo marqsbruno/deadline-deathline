@@ -6,9 +6,9 @@ import { Container } from "./Page.style";
 
 function Page() {
   const { isShaking } = useContext(TimeContext);
-
+  // $shaking transient prop
   return (
-    <Container shaking={isShaking}>
+    <Container $shaking={isShaking}>
       <TimeInput />
       <Clock />
     </Container>

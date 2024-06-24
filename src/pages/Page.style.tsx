@@ -1,20 +1,16 @@
 import styled, { keyframes } from "styled-components";
 
 const shake = keyframes`
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% { transform:rotate(-3deg); }
+  50% { transform:rotate(3deg); }
+  100% {transform:rotate(-3deg); }
 `;
 
-export const Container = styled.div<{ shaking: boolean }>`
+interface ContainerProps {
+  $shaking: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   margin: auto;
   width: ${(props) => props.theme.width};
   padding: 1.5rem;
@@ -28,7 +24,8 @@ export const Container = styled.div<{ shaking: boolean }>`
   border: 1px solid #ffffff;
   // border-radius: 50px;
   box-shadow: 35px 35px #2d3142;
-  animation: ${(props) => (props.shaking ? shake : "none")} 1s;
+  animation: ${(props) => (props.$shaking ? shake : "none")} 0.2s;
+  animation-iteration-count: 15;
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -36,5 +33,3 @@ export const Container = styled.div<{ shaking: boolean }>`
     box-shadow: 30px 30px #2d3142;
   }
 `;
-
-// https://keithjgrant.com/posts/2017/07/transitioning-gradients/

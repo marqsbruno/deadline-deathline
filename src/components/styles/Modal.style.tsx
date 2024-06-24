@@ -16,7 +16,6 @@ export const ModalDiv = styled.div`
   border: 3px solid ${(props) => props.theme.colors.bg};
   display: grid;
   justify-items: center;
-
   position: absolute;
   top: 50%;
   left: 50%;

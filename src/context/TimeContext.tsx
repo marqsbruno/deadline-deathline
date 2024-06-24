@@ -20,6 +20,8 @@ type Context = {
   setShowMessage: React.Dispatch<React.SetStateAction<boolean>>;
   isShaking: boolean;
   setIsShaking: React.Dispatch<React.SetStateAction<boolean>>;
+  messageValue: string;
+  setMessageValue: React.Dispatch<React.SetStateAction<string>>;
 };
 export const TimeContext = createContext({} as Context);
 
@@ -40,6 +42,7 @@ export default function TimeProvider({ children }: Provider) {
 
   const [showMessage, setShowMessage] = useState(false); // MODAL
   const [isShaking, setIsShaking] = useState(false);
+  const [messageValue, setMessageValue] = useState(""); // modal
 
   const contextValues = {
     deadline,
@@ -54,6 +57,8 @@ export default function TimeProvider({ children }: Provider) {
     showMessage,
     isShaking,
     setIsShaking,
+    setMessageValue,
+    messageValue,
   };
 
   return (

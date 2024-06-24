@@ -20,5 +20,3 @@ export default createGlobalStyle`
     font-style: normal;  
   }
 `;
-
-// ${(props) => props.theme.colors.bg};

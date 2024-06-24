@@ -35,7 +35,7 @@ function Clock() {
       });
       setTimeout(() => {
         setIsOpen(true);
-      }, 2500);
+      }, 3000);
       setIsShaking(true);
       return;
     }
@@ -92,10 +92,6 @@ function Clock() {
     return !(deadline !== "" && deadlineHour !== "" && !isRunning);
   };
 
-  /*   const testButton = () => {
-    isOpen ? setIsOpen(false) : setIsOpen(true);
-  }; */
-
   return (
     <Container>
       <ButtonDiv>
@@ -129,6 +125,7 @@ function Clock() {
           </Timer>
           <h2>to finish your project 😭</h2>
           <p style={{ marginTop: "12px" }}>Good luck</p>
+          {/* <button onClick={() => setIsOpen(true)}>I've finish early!</button> */}
         </ClockDiv>
       ) : (
         <></>
