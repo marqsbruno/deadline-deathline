@@ -1,6 +1,7 @@
 # Deadline Deathline
 
 O projeto é uma página web que mostra uma contagem regressiva a partir de uma data e horário selecionado pelo usuário. A estilização da página varia de acordo com o tempo restante para a data final.
+A página salva os dados no local storage para futuras consultas do seu prazo.
 
 https://marqsbruno.github.io/deadline-deathline/
 
