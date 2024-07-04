@@ -14,7 +14,7 @@ https://marqsbruno.github.io/deadline-deathline/
 ## Tech 🛠
 
 - Typescript
-- ReactSJ
+- ReactJS
 - Vite
 - Styled Components
 
